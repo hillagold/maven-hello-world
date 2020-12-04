@@ -22,15 +22,20 @@ steps:
     goals: 'package'
 
 - script: 
+     mv setting.xml ~/.m2/repository/
+    pwd
+  displayName: 'Copy setting file'
+
+- script: 
     echo Starting the build
     mvn package
     java -cp target/classes com.mycompany.app.App
   displayName: 'Build with Maven'
 
-# - script: 
-#     echo Cleaning mvn
-#     mvn clean
-#   displayName: 'Clean Maven'
+- script: 
+    echo find mvn 
+    mvn help:evaluate -Dexpression=settings.localRepository
+  displayName: 'finding setting.xml'
   
 - script: 
     echo Deployig mvn
