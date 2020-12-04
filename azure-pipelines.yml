@@ -7,7 +7,7 @@ trigger:
 - dependabot/maven/my-app/junit-junit-4.13.1
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-18.04'
 
 steps:
 - task: Maven@3
@@ -15,7 +15,7 @@ steps:
     mavenPomFile: 'my-app/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
+    jdkVersionOption: '1.7'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
