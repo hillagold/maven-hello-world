@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-18.04'
 
 steps:
-- task: Maven@3
+- task: Maven@2
   inputs:
     mavenPomFile: 'my-app/pom.xml'
     mavenOptions: '-Xmx3072m'
