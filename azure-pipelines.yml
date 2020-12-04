@@ -29,7 +29,7 @@ steps:
     publishLocation: 'Container'
 - task: Docker@2
   inputs:
-    repository: 'dockerhub'
+    repository: 'hillagold/myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
