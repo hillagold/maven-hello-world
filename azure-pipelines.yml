@@ -23,8 +23,8 @@ steps:
     goals: 'package'
 
 - script: 
-     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-  displayName: 'Create an project'
+    mvn clean package
+  displayName: 'clean package'
 
 # - script: 
 #     echo find mvn 
