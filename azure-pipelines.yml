@@ -23,7 +23,6 @@ steps:
 
 - script: 
      mv setting.xml ~/.m2/repository/
-    pwd
   displayName: 'Copy setting file'
 
 - script: 
