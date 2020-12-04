@@ -27,14 +27,9 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
-- script: 
-    docker login -user hillagold -password 545f7b18-fe93-4a35-a103-c4f56a9ec029
-  displayName: "Docker login"
-
 - task: Docker@2
   inputs:
-    repository: 'maven-hello-world'
+    repository: 'myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
