@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-8-alpine
+FROM maven:3.6.3-jdk-8
 # copy application WAR (with libraries inside)
 WORKDIR /app
 COPY . .
