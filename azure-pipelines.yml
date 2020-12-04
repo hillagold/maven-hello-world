@@ -32,10 +32,20 @@ steps:
 #   displayName: 'finding setting.xml'
   
 - script: 
+    echo compiling
+    mvn compile
+  displayName: 'Compile'
+
+- script: 
     echo Starting the build
     mvn package
     java -cp target/classes com.mycompany.app.App
   displayName: 'Build with Maven'
+
+- script: 
+    echo install
+    mvn install
+  displayName: 'Installing'
   
 - script: 
     echo Deployig mvn
