@@ -22,9 +22,9 @@ steps:
     mavenFeedAuthenticate: true
     goals: 'package'
 
-# - script: 
-#      mv setting.xml ~/.m2/repository/
-#   displayName: 'Copy setting file'
+- script: 
+     mvn --settings=setting.xml package
+  displayName: 'Copy setting file'
 
 # - script: 
 #     echo find mvn 
