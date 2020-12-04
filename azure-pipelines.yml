@@ -32,17 +32,14 @@ steps:
 #     repository: 'maven-hello-world'
 #     command: 'buildAndPush'
 #     Dockerfile: '**/Dockerfile'
-- task: DockerCompose@0
+# - task: ContainerBuild@0
+#   inputs:
+#     Dockerfile: 'Dockerfile'
+- task: Docker@2
   inputs:
-    containerregistrytype: 'Azure Container Registry'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Build services'
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Push services'
-    includeLatestTag: true
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
