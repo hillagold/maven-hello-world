@@ -22,9 +22,9 @@ steps:
     mavenFeedAuthenticate: true
     goals: 'package'
 
-- script: 
-    mvn clean package
-  displayName: 'clean package'
+# - script: 
+#     mvn clean package
+#   displayName: 'clean package'
 
 # - script: 
 #     echo find mvn 
