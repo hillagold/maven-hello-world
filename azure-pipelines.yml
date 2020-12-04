@@ -29,7 +29,7 @@ steps:
     publishLocation: 'Container'
 - task: Docker@2
   inputs:
-    repository: 'myrepo'
+    repository: 'dockerhub'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
