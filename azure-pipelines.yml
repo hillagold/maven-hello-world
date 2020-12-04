@@ -27,8 +27,10 @@ steps:
     java -cp target/classes com.mycompany.app.App
   displayName: 'Build with Maven'
 
-# - script: 
-#     echo Staring the deploy
+- script: 
+    echo Cleaning Maven
+    mvn clean
+  displayName: 'Clean Maven'
 
 
 # steps:
