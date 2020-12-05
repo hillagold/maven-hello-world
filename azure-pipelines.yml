@@ -37,6 +37,6 @@ steps:
   inputs:
     containerRegistry: 'dockerhub'
     tags: '$(Build.BuildId)'
-    command: 'run myrepo:$(Build.BuildId)'
+    command: 'pull hillag/myrepo:$(Build.BuildId) ; run hillag/myrepo:$(Build.BuildId)'
     container: 'hillagold/myrepo'
 
