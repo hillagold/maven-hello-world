@@ -33,21 +33,10 @@ steps:
     repository: 'hillagold/myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'dockerhub'
-#     tags: '$(Build.BuildId)'
-#     command: 'start'
-#     container: 'hillagold/myrepo'
-# - task: DockerCompose@0
-#   inputs:
-#     containerregistrytype: 'Azure Container Registry'
-#     dockerComposeFile: '**/docker-compose.yml'
-#     action: 'Run a Docker Compose command'
-#     containerCommand: 
-- task: DockerCompose@0
+- task: Docker@2
   inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'dockerhub'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
+    containerRegistry: 'dockerhub'
+    tags: '$(Build.BuildId)'
+    command: 'run'
+    container: 'hillagold/myrepo'
+
