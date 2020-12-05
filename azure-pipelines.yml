@@ -37,7 +37,7 @@ steps:
   displayName: run
   inputs:
     containerRegistry: dockerhub
-    command: 'run'
+    command: 'run hillagold/myrepo:$(Build.BuildId)'
     container: 'hillagold/myrepo'
     tags: '$(Build.BuildId)'
 - task: Docker@1
