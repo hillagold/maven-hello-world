@@ -42,7 +42,7 @@ steps:
   inputs:
     containerRegistry: 'dockerhub'
     command: 'start'
-    container: 'maven-hello-world'
+    container: 'hillagold/myrepo'
 # - task: Docker@2
 #   inputs:
 #     command: 'buildAndPush'
