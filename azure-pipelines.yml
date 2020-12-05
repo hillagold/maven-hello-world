@@ -38,6 +38,11 @@ steps:
     repository: 'hillagold/myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerhub'
+    command: 'start'
+    container: 'maven-hello-world'
 # - task: Docker@2
 #   inputs:
 #     command: 'buildAndPush'
