@@ -42,7 +42,7 @@ steps:
   inputs:
     containerRegistry: 'dockerhub'
     command: 'start'
-    container: 'hillagold/myrepo:latest'
+    container: 'hillagold/myrepo:$(Build.ArtifactStagingDirectory)'
 # - task: Docker@2
 #   inputs:
 #     command: 'buildAndPush'
