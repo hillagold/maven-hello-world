@@ -33,13 +33,19 @@ steps:
     repository: 'hillagold/myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+# - task: Docker@2
+#   displayName: run
+#   inputs:
+#     containerRegistry: dockerhub
+#     command: 'run hillagold/myrepo:$(Build.BuildId)'
+#     container: 'hillagold/myrepo'
+#     tags: '$(Build.BuildId)'
 - task: Docker@2
-  displayName: run
+  displayName: run docker
   inputs:
-    containerRegistry: dockerhub
-    command: 'run hillagold/myrepo:$(Build.BuildId)'
-    container: 'hillagold/myrepo'
-    tags: '$(Build.BuildId)'
+    containerRegistry: 'dockerhub'
+    command: 'run'
+    arguments: 'hillagold/myrepo:$(Build.BuildId)'
 - task: Docker@1
   displayName: run-1
   inputs:
