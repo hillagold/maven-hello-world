@@ -27,59 +27,27 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-# - task: Docker@2
-#   inputs:
-#     repository: 'hillagold/myrepo'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
 - task: Docker@2
   inputs:
     containerRegistry: 'dockerhub'
     repository: 'hillagold/myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'dockerhub'
-    command: 'start'
-    container: 'hillagold/myrepo:$(Build.BuildId)'
-
 # - task: Docker@2
 #   inputs:
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
-
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-# - script: 
-#     mvn clean package
-#   displayName: 'clean package'
-
-# - script: 
-#     echo find mvn 
-#     mvn help:evaluate -Dexpression=settings.localRepository
-#   displayName: 'finding setting.xml'
-  
-# - script: 
-#     echo compiling
-#     mvn compile
-#   displayName: 'Compile'
-
-# - script: 
-#     echo Starting the build
-#     mvn package
-#     java -cp target/classes com.mycompany.app.App
-#   displayName: 'Build with Maven'
-
-# - script: 
-#     echo install
-#     mvn install
-#   displayName: 'Installing'
-  
-# - script: 
-#     echo Deployig mvn
-#     mvn deploy
-#   displayName: 'Deploying Maven'
-
+#     containerRegistry: 'dockerhub'
+#     tags: '$(Build.BuildId)'
+#     command: 'start'
+#     container: 'hillagold/myrepo'
+# - task: DockerCompose@0
+#   inputs:
+#     containerregistrytype: 'Azure Container Registry'
+#     dockerComposeFile: '**/docker-compose.yml'
+#     action: 'Run a Docker Compose command'
+#     containerCommand: 
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'dockerhub'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
