@@ -37,6 +37,6 @@ steps:
   inputs:
     containerRegistry: 'dockerhub'
     tags: '$(Build.BuildId)'
-    command: 'run'
+    command: 'run .'
     container: 'hillagold/myrepo'
 
